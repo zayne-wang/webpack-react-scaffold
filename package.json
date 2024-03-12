@@ -5,9 +5,11 @@
   "private": "true",
   "type": "module",
   "scripts": {
+    "prepare": "husky",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "husky": "^9.0.11"
   },
   "author": {
     "name": "Zayne Wang",
