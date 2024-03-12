@@ -1,0 +1,18 @@
+{
+  "name": "webpack-react-scaffold",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+  },
+  "author": {
+    "name": "Zayne Wang",
+    "email": "zwang-p@outlook.com"
+  },
+  "contributors": [],
+  "license": "Apache-2.0"
+}
