@@ -5,13 +5,15 @@
   "private": "true",
   "type": "module",
   "scripts": {
+    "format:prettier": "prettier --write src",
     "prepare": "husky",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.1.0",
     "commitlint": "^19.1.0",
-    "husky": "^9.0.11"
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5"
   },
   "author": {
     "name": "Zayne Wang",
