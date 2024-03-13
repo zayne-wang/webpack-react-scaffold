@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 
-npx prettier -c src
+npx eslint src
+npx prettier --write src
