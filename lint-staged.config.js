@@ -4,7 +4,7 @@
 
 const config = {
   "**/*.json": "prettier",
-  "**/*.js": ["eslint", "prettier"],
+  "**/*.{ts,js}": ["eslint", "prettier"],
   "**/*.css": "stylelint"
 };
 

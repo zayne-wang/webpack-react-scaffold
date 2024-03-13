@@ -5,7 +5,7 @@
   "private": "true",
   "type": "module",
   "scripts": {
-    "lint:eslint": "eslint src/**/*.js",
+    "lint:eslint": "eslint src/**/*.{ts,js}",
     "lint:stylelint": "stylelint src/**/*.css",
     "format:prettier": "prettier --write src/**/*.js",
     "format:stylelint": "stylelint --fix src/**/*.css",
@@ -25,7 +25,9 @@
     "prettier": "^3.2.5",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
-    "stylelint-order": "^6.0.4"
+    "stylelint-order": "^6.0.4",
+    "typescript": "^5.4.2",
+    "typescript-eslint": "^7.2.0"
   },
   "author": {
     "name": "Zayne Wang",
