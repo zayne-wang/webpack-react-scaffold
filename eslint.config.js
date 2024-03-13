@@ -1,27 +1,45 @@
 import js from "@eslint/js";
-import tseslint from "typescript-eslint";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import globals from "globals";
 
 /**
  * @type {import("@types/eslint").Linter.FlatConfig}
  */
-const config = {
-  files: ["**/*.{ts,js}"],
+const commonConfig = {
+  languageOptions: {
+    globals: {
+      ...globals.browser,
+      ...globals.es2021,
+      ...globals.node
+    }
+  },
+  rules: {
+    "no-unused-vars": "off"
+  }
+};
 
+/**
+ * @type {import("@types/eslint").Linter.FlatConfig}
+ */
+const tsconfig = {
+  files: ["**/*.ts"],
   plugins: {
-    "@typescript-eslint": tseslint.plugin
+    "@typescript-eslint": tsPlugin
   },
 
   languageOptions: {
-    parser: tseslint.parser,
+    parser: tsParser,
     parserOptions: {
+      ecmaVersion: "latest",
       sourceType: "module"
     }
   },
 
   rules: {
-    "no-unused-vars": "off",
+    ...tsPlugin.configs.recommended.rules,
     "@typescript-eslint/no-unused-vars": "off"
   }
 };
 
-export default [js.configs.recommended, ...tseslint.configs.recommended, config];
+export default [js.configs.recommended, commonConfig, tsconfig];
