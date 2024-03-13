@@ -3,8 +3,9 @@
  */
 
 const config = {
-  "**/*.json": () => "prettier --write",
-  "**/*.js": () => ["eslint", "prettier --write"]
+  "**/*.json": "prettier",
+  "**/*.js": ["eslint", "prettier"],
+  "**/*.css": "stylelint"
 };
 
 export default config;
