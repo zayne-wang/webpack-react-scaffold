@@ -1,5 +1,6 @@
 /** @type {import("prettier").Config} */
 const config = {
+  filepath: "src/**/*.js",
   printWidth: 100,
   tabWidth: 2,
   useTabs: false,

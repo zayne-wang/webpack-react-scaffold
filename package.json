@@ -7,17 +7,18 @@
   "scripts": {
     "lint:eslint": "eslint src",
     "format:prettier": "prettier --write src",
-    "prepare": "husky",
     "test:eslint": "eslint --print-config ./eslint.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.1.0",
     "@eslint/js": "^8.57.0",
     "@types/eslint": "^8.56.5",
+    "@types/lint-staged": "^13.3.0",
     "commitlint": "^19.1.0",
     "eslint": "^8.57.0",
     "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.2.5"
   },
   "author": {
