@@ -9,7 +9,6 @@
     "lint:stylelint": "stylelint src/**/*.css",
     "format:prettier": "prettier --write src/**/*.js",
     "format:stylelint": "stylelint --fix src/**/*.css",
-    "test:eslint": "eslint --print-config ./eslint.config.js",
     "prepare": "husky"
   },
   "devDependencies": {
