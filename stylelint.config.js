@@ -3,7 +3,7 @@
  */
 const config = {
   fix: true,
-  extends: ["stylelint-config-standard", "stylelint-order"]
+  extends: ["stylelint-config-recommended", "stylelint-config-recess-order"],
 };
 
 export default config;
