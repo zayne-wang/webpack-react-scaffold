@@ -7,21 +7,10 @@ const config = {
     "type-enum": [
       2,
       "always",
-      [
-        "feat",
-        "fix",
-        "docs",
-        "style",
-        "refactor",
-        "perf",
-        "test",
-        "chore",
-        "revert",
-        "build",
-      ],
+      ["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore", "revert", "build"]
     ],
-    "subject-case": [2, "always", "lower-case"],
-  },
+    "subject-case": [0]
+  }
 };
 
 export default config;
