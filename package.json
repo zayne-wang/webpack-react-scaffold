@@ -7,9 +7,9 @@
   "scripts": {
     "preview": "cross-env NODE_ENV=development webpack serve",
     "build": "cross-env NODE_ENV=production webpack",
-    "lint:eslint": "eslint src/**/*.{ts,js}",
+    "lint:eslint": "eslint src/**/*.{ts,js,tsx,jsx}",
     "lint:stylelint": "stylelint src/**/*.css",
-    "format:prettier": "prettier --write src/**/*.js",
+    "format:prettier": "prettier --write src/**/*.{js,jsx,ts,tsx}",
     "format:stylelint": "stylelint --fix src/**/*.css",
     "prepare": "husky"
   },
@@ -18,9 +18,11 @@
     "@babel/plugin-proposal-decorators": "^7.24.0",
     "@babel/plugin-transform-runtime": "^7.24.0",
     "@babel/preset-env": "^7.24.0",
+    "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
     "@commitlint/config-conventional": "^19.1.0",
     "@eslint/js": "^8.57.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@types/eslint": "^8.56.5",
     "@types/lint-staged": "^13.3.0",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
@@ -34,6 +36,7 @@
     "css-loader": "^6.10.0",
     "css-minimizer-webpack-plugin": "^6.0.0",
     "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.0",
     "eslint-webpack-plugin": "^4.0.1",
     "globals": "^14.0.0",
     "html-webpack-plugin": "^5.6.0",
@@ -45,6 +48,7 @@
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^9.5.1",
     "prettier": "^3.2.5",
+    "react-refresh": "^0.14.0",
     "style-loader": "^3.3.4",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
@@ -53,6 +57,28 @@
     "typescript": "^5.4.2",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "webpack-dev-server": "^5.0.3"
+  },
+  "overrides": {
+    "@pmmmwh/react-refresh-webpack-plugin": {
+      "webpack-dev-server": "3.x || 4.x || 5.x"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "author": {
     "name": "Zayne Wang",

@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
@@ -94,12 +95,15 @@ module.exports = (env, argv) => {
 
     plugins: [
       new EslintWebpackPlugin({
+        configType: "flat",
+        eslintPath: "eslint/use-at-your-own-risk",
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
         context: path.resolve(__dirname, "./"),
         exclude: 'node_modules',
         cache: true,
         cacheLocation: path.resolve(__dirname, 'node_modules/.cache/.eslintcache')
       }),
+
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'public/index.html')
       }),
@@ -109,6 +113,7 @@ module.exports = (env, argv) => {
           chunkFilename: 'static/css/[name].[contenthash:10].chunk.css'
         }),
       isEnvDevelopment && new CaseSensitivePathsWebpackPlugin(),
+      isEnvDevelopment && new ReactRefreshWebpackPlugin(),
       new CopyWebpackPlugin({
         patterns: [
           {
@@ -135,6 +140,18 @@ module.exports = (env, argv) => {
       splitChunks: {
         chunks: 'all',
         cacheGroups: {
+          layouts: {
+            name: 'layouts',
+            test: path.resolve(__dirname, 'src/layouts'),
+            priority: 40
+          },
+          // 将react相关的库单独打包，减少node_modules的chunk体积。
+          react: {
+            name: 'react',
+            test: /[\\/]node_modules[\\/]react(.*)?[\\/]/,
+            chunks: 'initial',
+            priority: 20
+          },
           libs: {
             name: 'chunk-libs',
             test: /[\\/]node_modules[\\/]/,
@@ -152,6 +169,7 @@ module.exports = (env, argv) => {
       extensions: ['.tsx', '.jsx', '.ts', '.js', '.json'],
       alias: {
         '@': path.resolve(__dirname, 'src'),
+        '@components': path.resolve(__dirname, 'src/components'),
       }
     },
 
