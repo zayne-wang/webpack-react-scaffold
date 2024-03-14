@@ -53,6 +53,7 @@
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
     "stylelint-order": "^6.0.4",
+    "stylelint-webpack-plugin": "^5.0.0",
     "terser-webpack-plugin": "^5.3.10",
     "typescript": "^5.4.2",
     "webpack": "^5.90.3",
