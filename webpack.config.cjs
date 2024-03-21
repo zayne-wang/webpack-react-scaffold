@@ -27,6 +27,7 @@ module.exports = (env, argv) => {
 
     return loaders;
   };
+
   /**
    * @type {import("webpack/types").Configuration}
    */
@@ -69,6 +70,31 @@ module.exports = (env, argv) => {
               })
             },
             {
+              test: /\.sa|css$/i,
+              exclude: /\.module\.s[a|c]ss$/i,
+              use: [
+                ...getCommonStyleLoader({
+                  importLoaders: 3,
+                  modules: {
+                    mode: "icss"
+                  }
+                }),
+                require.resolve("sass-loader")
+              ]
+            },
+            {
+              test: /\.module\.s[a|c]ss$/i,
+              use: [
+                ...getCommonStyleLoader({
+                  importLoaders: 3,
+                  modules: {
+                    mode: "local"
+                  }
+                }),
+                require.resolve("sass-loader")
+              ]
+            },
+            {
               test: /\.(png|jpe?g|gif|svg)$/,
               type: "asset",
               parser: {
@@ -98,7 +124,7 @@ module.exports = (env, argv) => {
       new EslintWebpackPlugin({
         configType: "flat",
         eslintPath: "eslint/use-at-your-own-risk",
-        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        extensions: [".ts", ".tsx", ".js", ".jsx"],
         context: path.resolve(__dirname, "./"),
         exclude: "node_modules",
         cache: true,
